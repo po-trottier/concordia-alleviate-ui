@@ -47,8 +47,8 @@ public class JournalFragment extends Fragment {
         findViews(rootLayout);
 
         vm.generateRandomData();
-        updateChart(heartRateChart);
-        updateChart(agitationChart);
+        updateChart(heartRateChart, -1);
+        updateChart(agitationChart, 100);
         updateViewsData();
 
         return rootLayout;
@@ -80,7 +80,7 @@ public class JournalFragment extends Fragment {
         });
     }
 
-    private void updateChart(BarChart chart) {
+    private void updateChart(BarChart chart, int maxValue) {
         XAxis xAxis = chart.getXAxis();
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
         xAxis.setDrawGridLines(false);
@@ -93,6 +93,9 @@ public class JournalFragment extends Fragment {
         rightAxis.setDrawAxisLine(false);
         rightAxis.setTextColor(activity.getColor(R.color.dark));
         rightAxis.setGridColor(activity.getColor(R.color.grey));
+
+        if (maxValue > 0)
+            rightAxis.setAxisMaximum(maxValue);
 
         YAxis leftAxis = chart.getAxisLeft();
         leftAxis.setEnabled(false);
