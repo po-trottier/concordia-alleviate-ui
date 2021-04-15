@@ -33,13 +33,13 @@ public class JournalFragment extends Fragment {
         activity = getActivity();
         vm = new ViewModelProvider(this).get(JournalViewModel.class);
 
-        View root = inflater.inflate(R.layout.fragment_journal, container, false);
-        findViews(root);
+        View rootLayout = inflater.inflate(R.layout.fragment_journal, container, false);
+        findViews(rootLayout);
 
         vm.generateRandomData();
         updateViewsData();
 
-        return root;
+        return rootLayout;
     }
 
     private void findViews(View root) {

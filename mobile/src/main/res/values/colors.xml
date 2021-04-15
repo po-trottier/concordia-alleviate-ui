@@ -12,4 +12,5 @@
 
     <color name="dark">#FF333138</color>
     <color name="light">#FFF7F7F7</color>
+    <color name="dock">#D2FFFFFF</color>
 </resources>
