@@ -1,4 +1,4 @@
-package com.concordia.alleviate.ui.notifications;
+package com.concordia.alleviate.ui.settings;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,22 +14,23 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.concordia.alleviate.R;
 
-public class NotificationsFragment extends Fragment {
+public class SettingsFragment extends Fragment {
 
-    private NotificationsViewModel notificationsViewModel;
+    private SettingsViewModel vm;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        notificationsViewModel =
-                new ViewModelProvider(this).get(NotificationsViewModel.class);
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        vm = new ViewModelProvider(this).get(SettingsViewModel.class);
+
         View root = inflater.inflate(R.layout.fragment_settings, container, false);
+
         final TextView textView = root.findViewById(R.id.text_notifications);
-        notificationsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        vm.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
             }
         });
+
         return root;
     }
 }

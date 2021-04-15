@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_journal"
-        android:name="com.concordia.alleviate.ui.home.HomeFragment"
+        android:name="com.concordia.alleviate.ui.journal.JournalFragment"
         android:label="@string/title_journal"
         tools:layout="@layout/fragment_journal" />
 
     <fragment
         android:id="@+id/navigation_relief"
-        android:name="com.concordia.alleviate.ui.dashboard.DashboardFragment"
+        android:name="com.concordia.alleviate.ui.relief.ReliefFragment"
         android:label="@string/title_relief"
         tools:layout="@layout/fragment_relief" />
 
     <fragment
         android:id="@+id/navigation_settings"
-        android:name="com.concordia.alleviate.ui.notifications.NotificationsFragment"
+        android:name="com.concordia.alleviate.ui.settings.SettingsFragment"
         android:label="@string/title_settings"
         tools:layout="@layout/fragment_settings" />
 </navigation>
