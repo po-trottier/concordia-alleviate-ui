@@ -5,11 +5,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginBottom="54dp"
     tools:context=".ui.journal.JournalFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:padding="@dimen/fragment_padding">
 
         <ImageView
@@ -312,15 +313,39 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="32dp"
                 android:textSize="24sp"
                 android:textColor="@color/dark"
                 android:textAlignment="center"
                 android:text="@string/weekly_statistics_title" />
 
-            <com.github.mikephil.charting.charts.BarChart
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="200dp" />
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:textSize="14sp"
+                android:textAlignment="center"
+                android:text="@string/weekly_statistics_heart" />
+
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/journal_heart_graph"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginBottom="48dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:textSize="14sp"
+                android:textAlignment="center"
+                android:text="@string/weekly_statistics_agitation" />
+
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/journal_agitation_graph"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginBottom="16dp" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 

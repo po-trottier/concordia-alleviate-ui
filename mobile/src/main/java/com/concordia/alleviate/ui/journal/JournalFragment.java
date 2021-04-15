@@ -12,15 +12,25 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.concordia.alleviate.R;
+import com.concordia.alleviate.formatters.DayAxisFormatter;
+import com.github.mikephil.charting.animation.Easing;
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.components.Description;
+import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
 import pl.pawelkleczkowski.customgauge.CustomGauge;
 
 public class JournalFragment extends Fragment {
 
-    private final int ANIMATION_TIME = 5;
+    private final int GAUGE_ANIMATION_TIME = 5;
+    private final int CHART_ANIMATION_TIME = 2;
 
     private Activity activity;
     private JournalViewModel vm;
 
+    private BarChart heartRateChart;
+    private BarChart agitationChart;
     private CustomGauge stressGauge;
     private TextView stressView;
     private TextView alleviatedView;
@@ -37,12 +47,16 @@ public class JournalFragment extends Fragment {
         findViews(rootLayout);
 
         vm.generateRandomData();
+        updateChart(heartRateChart);
+        updateChart(agitationChart);
         updateViewsData();
 
         return rootLayout;
     }
 
     private void findViews(View root) {
+        heartRateChart = root.findViewById(R.id.journal_heart_graph);
+        agitationChart = root.findViewById(R.id.journal_agitation_graph);
         stressGauge = root.findViewById(R.id.journal_progress_bar);
         stressView = root.findViewById(R.id.journal_stress_text);
         alleviatedView = root.findViewById(R.id.journal_alleviated_text);
@@ -53,6 +67,8 @@ public class JournalFragment extends Fragment {
     }
 
     private void updateViewsData() {
+        heartRateChart.setData(vm.getHeartRateChartData(activity.getColor(R.color.turquoise)));
+        agitationChart.setData(vm.getAgitationChartData(activity.getColor(R.color.yellow_orange)));
         vm.getAlleviatedTime().observe(getViewLifecycleOwner(), (i) -> alleviatedView.setText(Integer.toString(i)));
         vm.getHeartRate().observe(getViewLifecycleOwner(), (i) -> heartRateView.setText(Integer.toString(i)));
         vm.getBloodPressureTop().observe(getViewLifecycleOwner(), (i) -> bloodPressureTopView.setText(Integer.toString(i)));
@@ -64,6 +80,33 @@ public class JournalFragment extends Fragment {
         });
     }
 
+    private void updateChart(BarChart chart) {
+        XAxis xAxis = chart.getXAxis();
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+        xAxis.setDrawGridLines(false);
+        xAxis.setTextColor(activity.getColor(R.color.dark));
+        xAxis.setValueFormatter(new DayAxisFormatter(getContext()));
+
+        YAxis rightAxis = chart.getAxisRight();
+        rightAxis.setLabelCount(5, true);
+        rightAxis.setAxisMinimum(0);
+        rightAxis.setDrawAxisLine(false);
+        rightAxis.setTextColor(activity.getColor(R.color.dark));
+        rightAxis.setGridColor(activity.getColor(R.color.grey));
+
+        YAxis leftAxis = chart.getAxisLeft();
+        leftAxis.setEnabled(false);
+
+        Legend legend = chart.getLegend();
+        legend.setEnabled(false);
+
+        Description description = chart.getDescription();
+        description.setEnabled(false);
+
+        chart.setTouchEnabled(false);
+        chart.animateXY(CHART_ANIMATION_TIME * 1000, CHART_ANIMATION_TIME * 1000, Easing.EaseOutCubic);
+    }
+
     private void updateProgressBar(int stressValue) {
         new Thread(() -> {
             try {
@@ -71,7 +114,7 @@ public class JournalFragment extends Fragment {
                 for (int i = 0 ; i < 100 ; i++) {
                     float percentage = (float) (i + 1) / 100;
                     activity.runOnUiThread(() -> stressGauge.setValue((int) (stressValue * percentage)));
-                    Thread.sleep((long) ((float) (ANIMATION_TIME * stressValue) / 100));
+                    Thread.sleep((long) ((float) (GAUGE_ANIMATION_TIME * stressValue) / 100));
                 }
             } catch (InterruptedException e) {
                 e.printStackTrace();

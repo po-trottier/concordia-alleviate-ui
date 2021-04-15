@@ -5,6 +5,14 @@
     <string name="title_relief">Relief</string>
     <string name="title_settings">Settings</string>
 
+    <string name="day_monday">Mon</string>
+    <string name="day_tuesday">Tue</string>
+    <string name="day_wednesday">Wed</string>
+    <string name="day_thursday">Thu</string>
+    <string name="day_friday">Fri</string>
+    <string name="day_saturday">Sat</string>
+    <string name="day_sunday">Sun</string>
+
     <string name="profile_picture_description">Profile Picture</string>
 
     <string name="stress_text">Stress Level</string>
@@ -18,4 +26,6 @@
     <string name="agitation_units">%</string>
 
     <string name="weekly_statistics_title">Weekly Statistics</string>
+    <string name="weekly_statistics_heart">Average Daily Heart Rate</string>
+    <string name="weekly_statistics_agitation">Average Daily Agitation</string>
 </resources>

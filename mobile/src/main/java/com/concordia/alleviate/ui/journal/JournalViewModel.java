@@ -2,6 +2,12 @@ package com.concordia.alleviate.ui.journal;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
+
+import java.util.ArrayList;
 
 public class JournalViewModel extends ViewModel {
 
@@ -52,6 +58,46 @@ public class JournalViewModel extends ViewModel {
         setBloodPressureTop((int) (Math.random() * (PRESSURE_TOP_MAXIMUM - PRESSURE_TOP_MINIMUM + 1) + PRESSURE_TOP_MINIMUM));
         setBloodPressureBottom((int) (Math.random() * (PRESSURE_BOTTOM_MAXIMUM - PRESSURE_BOTTOM_MINIMUM + 1) + PRESSURE_BOTTOM_MINIMUM));
         setAgitationLevel((int) (Math.random() * (AGITATION_MAXIMUM - AGITATION_MINIMUM + 1) + AGITATION_MINIMUM));
+    }
+
+    public BarData getHeartRateChartData(int color) {
+        ArrayList<BarEntry> entries = new ArrayList<>();
+
+        for (int i = 0; i < 7; i++) {
+            float random = (float) (Math.random() * (HEART_MAXIMUM - HEART_MINIMUM + 1) + HEART_MINIMUM);
+            entries.add(new BarEntry(i, random));
+        }
+
+        BarDataSet dataSet = new BarDataSet(entries, "Heart Rate");
+        dataSet.setColor(color);
+        dataSet.setDrawValues(false);
+
+        ArrayList<IBarDataSet> dataSets = new ArrayList<>();
+        dataSets.add(dataSet);
+
+        BarData data = new BarData(dataSets);
+        data.setBarWidth(0.1f);
+        return data;
+    }
+
+    public BarData getAgitationChartData(int color) {
+        ArrayList<BarEntry> entries = new ArrayList<>();
+
+        for (int i = 0; i < 7; i++) {
+            float random = (float) (Math.random() * (AGITATION_MAXIMUM - AGITATION_MINIMUM + 1) + AGITATION_MINIMUM);
+            entries.add(new BarEntry(i, random));
+        }
+
+        BarDataSet dataSet = new BarDataSet(entries, "Agitation");
+        dataSet.setColor(color);
+        dataSet.setDrawValues(false);
+
+        ArrayList<IBarDataSet> dataSets = new ArrayList<>();
+        dataSets.add(dataSet);
+
+        BarData data = new BarData(dataSets);
+        data.setBarWidth(0.1f);
+        return data;
     }
 
     public MutableLiveData<Integer> getStressLevel() {
