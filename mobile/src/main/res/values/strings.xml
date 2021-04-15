@@ -16,4 +16,6 @@
     <string name="pressure_text">Blood Pressure</string>
     <string name="agitation_text">Agitation Level</string>
     <string name="agitation_units">%</string>
+
+    <string name="weekly_statistics_title">Weekly Statistics</string>
 </resources>

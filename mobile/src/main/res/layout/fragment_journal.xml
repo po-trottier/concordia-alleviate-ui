@@ -283,6 +283,6 @@
             android:textSize="24sp"
             android:textColor="@color/dark"
             android:textAlignment="center"
-            android:text="Weekly Statistics"/>
+            android:text="@string/weekly_statistics_title"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
