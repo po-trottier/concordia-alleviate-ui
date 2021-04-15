@@ -1,7 +1,19 @@
 <resources>
     <string name="app_name">Alleviate</string>
+
     <string name="title_journal">Journal</string>
     <string name="title_relief">Relief</string>
     <string name="title_settings">Settings</string>
+
     <string name="profile_picture_description">Profile Picture</string>
+
+    <string name="stress_text">Stress Level</string>
+    <string name="stress_units">%</string>
+    <string name="alleviated_text">Alleviated</string>
+    <string name="alleviated_units">day(s)</string>
+    <string name="heart_text">Heart Rate</string>
+    <string name="heart_units">bpm</string>
+    <string name="pressure_text">Blood Pressure</string>
+    <string name="agitation_text">Agitation Level</string>
+    <string name="agitation_units">%</string>
 </resources>

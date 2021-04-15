@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,59 +8,281 @@
     android:padding="@dimen/fragment_padding"
     tools:context=".ui.journal.JournalFragment">
 
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleY="1.075"
+        android:translationY="-4dp"
+        android:src="@drawable/ic_journal_link"
+        app:layout_constraintBottom_toTopOf="@id/journal_stats_card"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/journal_progress_bar" />
+
     <pl.pawelkleczkowski.customgauge.CustomGauge
         android:id="@+id/journal_progress_bar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="200dp"
         android:layout_height="200dp"
+        android:layout_marginTop="16dp"
         app:gaugePointSize="0"
-        app:gaugePointStartColor="@color/ming"
+        app:gaugePointStartColor="@color/turquoise"
         app:gaugePointEndColor="@color/turquoise"
         app:gaugeStrokeColor="@color/faded_turquoise"
         app:gaugeStrokeWidth="@dimen/progress_bar_width"
         app:gaugeStrokeCap="ROUND"
-        app:gaugeStartAngle="270"
+        app:gaugeStartAngle="90"
         app:gaugeStartValue="0"
         app:gaugeEndValue="100"
-        app:layout_constraintBottom_toTopOf="@id/journal_linear_layout"
+        app:layout_constraintBottom_toTopOf="@id/journal_stress_card"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="140dp"
         android:layout_height="140dp"
         app:cardElevation="0dp"
         app:cardCornerRadius="70dp"
         app:cardBackgroundColor="@android:color/transparent"
-        app:layout_constraintBottom_toTopOf="@id/journal_linear_layout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintBottom_toBottomOf="@id/journal_progress_bar"
+        app:layout_constraintEnd_toEndOf="@id/journal_progress_bar"
+        app:layout_constraintStart_toStartOf="@id/journal_progress_bar"
+        app:layout_constraintTop_toTopOf="@id/journal_progress_bar">
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="@string/profile_picture_description"
             android:src="@drawable/profile" />
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
-    <LinearLayout
-        android:id="@+id/journal_linear_layout"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/journal_stress_card"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
+        app:cardBackgroundColor="@color/faded_turquoise"
+        app:cardElevation="@dimen/no_elevation"
+        app:cardCornerRadius="@dimen/card_corner_radius"
+        app:layout_constraintTop_toBottomOf="@id/journal_progress_bar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/journal_progress_bar">
-        <TextView
-            android:id="@+id/text_home"
+        app:layout_constraintEnd_toStartOf="@id/journal_alleviated_card"
+        app:layout_constraintBottom_toTopOf="@id/journal_stats_card">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="16dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/journal_stress_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="32sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/turquoise" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:textSize="16sp"
+                    android:textColor="@color/turquoise"
+                    android:text="@string/stress_units"/>
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textColor="@color/turquoise"
+                android:text="@string/stress_text"/>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/journal_alleviated_card"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
+        app:cardBackgroundColor="@color/faded_yellow_orange"
+        app:cardElevation="@dimen/no_elevation"
+        app:cardCornerRadius="@dimen/card_corner_radius"
+        app:layout_constraintTop_toBottomOf="@id/journal_progress_bar"
+        app:layout_constraintStart_toEndOf="@id/journal_stress_card"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/journal_stats_card">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="16dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/journal_alleviated_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="32sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/yellow_orange" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:textSize="16sp"
+                    android:text="@string/alleviated_units"
+                    android:textColor="@color/yellow_orange" />
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textColor="@color/yellow_orange"
+                android:text="@string/alleviated_text"/>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/journal_stats_card"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardElevation="@dimen/no_elevation"
+        app:cardBackgroundColor="@color/light"
+        app:cardCornerRadius="@dimen/card_corner_radius"
+        app:layout_constraintTop_toBottomOf="@id/journal_stress_card"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/journal_graphs_layout">
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
+            android:orientation="horizontal"
+            android:layout_marginVertical="16dp"
+            android:layout_marginHorizontal="8dp">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_horizontal">
+                    <TextView
+                        android:id="@+id/journal_heart_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/dark" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:textSize="12sp"
+                        android:textColor="@color/dark"
+                        android:text="@string/heart_units" />
+                </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textAlignment="center"
+                    android:text="@string/heart_text"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="8dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_horizontal">
+                    <TextView
+                        android:id="@+id/journal_pressure_top_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/dark" />
+                    <TextView
+                        android:id="@+id/journal_pressure_bottom_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:textSize="12sp"
+                        android:textColor="@color/dark"
+                        android:text="@string/agitation_units" />
+                </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textAlignment="center"
+                    android:text="@string/pressure_text"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_horizontal">
+                    <TextView
+                        android:id="@+id/journal_agitation_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/dark" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:textSize="12sp"
+                        android:textColor="@color/dark"
+                        android:text="@string/agitation_units" />
+                </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textAlignment="center"
+                    android:text="@string/agitation_text"/>
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <LinearLayout
+        android:id="@+id/journal_graphs_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/journal_stats_card">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:textColor="@color/dark"
             android:textAlignment="center"
-            android:textSize="20sp" />
+            android:text="Weekly Statistics"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

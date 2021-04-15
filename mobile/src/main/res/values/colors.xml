@@ -5,13 +5,11 @@
     <color name="yellow_orange">#FFFFA630</color>
     <color name="fiery_rose">#FFF45B69</color>
 
-    <color name="faded_turquoise">#D8F0ED</color>
+    <color name="faded_turquoise">#E7fBF9</color>
     <color name="faded_ming">#BEE2E6</color>
-    <color name="faded_yellow_orange">#FFEFD9</color>
-    <color name="faded_fiery_rose">#FFE0E3</color>
+    <color name="faded_yellow_orange">#FFF4E6</color>
+    <color name="faded_fiery_rose">#FFEBED</color>
 
-    <color name="black">#FF000000</color>
     <color name="dark">#FF333138</color>
-    <color name="white">#FFFFFFFF</color>
     <color name="light">#FFF7F7F7</color>
 </resources>
