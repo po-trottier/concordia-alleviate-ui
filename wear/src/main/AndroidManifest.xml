@@ -34,13 +34,19 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.concordia.alleviate.activities.AlleviateActivity">
+        <activity
+            android:name="com.concordia.alleviate.activities.AlleviateActivity"
+            android:launchMode = "singleTop">
         </activity>
 
-        <activity android:name="com.concordia.alleviate.activities.ReliefActivity">
+        <activity
+            android:name="com.concordia.alleviate.activities.ReliefActivity"
+            android:launchMode = "singleTop">
         </activity>
 
-        <activity android:name="com.concordia.alleviate.activities.VitalsActivity">
+        <activity
+            android:name="com.concordia.alleviate.activities.VitalsActivity"
+            android:launchMode = "singleTop">
         </activity>
 
         <service
