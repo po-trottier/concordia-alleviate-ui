@@ -11,18 +11,18 @@ import java.util.ArrayList;
 
 public class JournalViewModel extends ViewModel {
 
-    private final int STRESS_MINIMUM = 10;
-    private final int STRESS_MAXIMUM = 95;
-    private final int ALEVIATED_MINIMUM = 1;
-    private final int ALEVIATED_MAXIMUM = 14;
-    private final int HEART_MINIMUM = 60;
-    private final int HEART_MAXIMUM = 120;
-    private final int PRESSURE_TOP_MINIMUM = 110;
-    private final int PRESSURE_TOP_MAXIMUM = 130;
-    private final int PRESSURE_BOTTOM_MINIMUM = 60;
-    private final int PRESSURE_BOTTOM_MAXIMUM = 90;
-    private final int AGITATION_MINIMUM = 1;
-    private final int AGITATION_MAXIMUM = 99;
+    private static final int STRESS_MINIMUM = 10;
+    private static final int STRESS_MAXIMUM = 95;
+    private static final int ALLEVIATED_MINIMUM = 1;
+    private static final int ALLEVIATED_MAXIMUM = 14;
+    private static final int HEART_MINIMUM = 60;
+    private static final int HEART_MAXIMUM = 120;
+    private static final int PRESSURE_TOP_MINIMUM = 110;
+    private static final int PRESSURE_TOP_MAXIMUM = 130;
+    private static final int PRESSURE_BOTTOM_MINIMUM = 60;
+    private static final int PRESSURE_BOTTOM_MAXIMUM = 90;
+    private static final int AGITATION_MINIMUM = 1;
+    private static final int AGITATION_MAXIMUM = 99;
 
     private final MutableLiveData<Integer> stressLevel;
     private final MutableLiveData<Integer> alleviatedTime;
@@ -53,7 +53,7 @@ public class JournalViewModel extends ViewModel {
 
     public void generateRandomData() {
         setStressLevel((int) (Math.random() * (STRESS_MAXIMUM - STRESS_MINIMUM + 1) + STRESS_MINIMUM));
-        setAlleviatedTime((int) (Math.random() * (ALEVIATED_MAXIMUM - ALEVIATED_MINIMUM + 1) + ALEVIATED_MINIMUM));
+        setAlleviatedTime((int) (Math.random() * (ALLEVIATED_MAXIMUM - ALLEVIATED_MINIMUM + 1) + ALLEVIATED_MINIMUM));
         setHeartRate((int) (Math.random() * (HEART_MAXIMUM - HEART_MINIMUM + 1) + HEART_MINIMUM));
         setBloodPressureTop((int) (Math.random() * (PRESSURE_TOP_MAXIMUM - PRESSURE_TOP_MINIMUM + 1) + PRESSURE_TOP_MINIMUM));
         setBloodPressureBottom((int) (Math.random() * (PRESSURE_BOTTOM_MAXIMUM - PRESSURE_BOTTOM_MINIMUM + 1) + PRESSURE_BOTTOM_MINIMUM));

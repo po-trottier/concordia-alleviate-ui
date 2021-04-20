@@ -23,8 +23,8 @@ import pl.pawelkleczkowski.customgauge.CustomGauge;
 
 public class JournalFragment extends Fragment {
 
-    private final int GAUGE_ANIMATION_TIME = 5;
-    private final int CHART_ANIMATION_TIME = 2;
+    private static final int GAUGE_ANIMATION_TIME = 5;
+    private static final int CHART_ANIMATION_TIME = 2;
 
     private Activity activity;
     private JournalViewModel vm;
