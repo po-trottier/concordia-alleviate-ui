@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="turquoise">#FF03C9B5</color>
+    <color name="ming">#FF006D77</color>
+    <color name="yellow_orange">#FFFFA630</color>
+    <color name="fiery_rose">#FFF45B69</color>
+
+    <color name="faded_turquoise">#E7fBF9</color>
+    <color name="faded_ming">#BEE2E6</color>
+    <color name="faded_yellow_orange">#FFF4E6</color>
+    <color name="faded_fiery_rose">#FFEBED</color>
+
+    <color name="dark">#FF333138</color>
+    <color name="light">#FFF7F7F7</color>
+    <color name="grey">#FFDEDEDE</color>
+    <color name="dock">#D2FFFFFF</color>
+</resources>
