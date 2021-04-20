@@ -28,7 +28,31 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:id="@+id/home_stress_level_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="@id/home_progress_bar"
+        app:layout_constraintStart_toStartOf="@id/home_progress_bar"
+        app:layout_constraintEnd_toEndOf="@id/home_progress_bar"
+        app:layout_constraintBottom_toBottomOf="@id/home_progress_bar">
+        <TextView
+            android:id="@+id/home_stress_level_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="2dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="@string/stress_level_units" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/home_heart_rate_layout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -42,7 +66,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <TextView
-                android:id="@+id/home_stress_level_text"
+                android:id="@+id/home_heart_rate_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
@@ -53,14 +77,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
-                android:text="@string/stress_level_units" />
+                android:text="@string/heart_rate_units" />
         </LinearLayout>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="10sp"
             android:textStyle="bold"
-            android:text="@string/stress_level_title" />
+            android:text="@string/heart_rate_title" />
     </LinearLayout>
 
     <LinearLayout
@@ -70,7 +94,7 @@
         android:orientation="vertical"
         android:gravity="center_horizontal"
         app:layout_constraintTop_toBottomOf="@id/home_progress_bar"
-        app:layout_constraintStart_toEndOf="@id/home_stress_level_layout"
+        app:layout_constraintStart_toEndOf="@id/home_heart_rate_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/home_buttons_layout">
         <LinearLayout
@@ -106,7 +130,7 @@
         android:orientation="horizontal"
         android:layout_marginTop="4dp"
         android:gravity="center_horizontal|bottom"
-        app:layout_constraintTop_toBottomOf="@id/home_stress_level_layout"
+        app:layout_constraintTop_toBottomOf="@id/home_heart_rate_layout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
         <ImageButton

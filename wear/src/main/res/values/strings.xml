@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">Alleviate</string>
 
-    <string name="stress_level_title">Stress Level</string>
     <string name="stress_level_units">%</string>
+    <string name="heart_rate_title">Heart Rate</string>
+    <string name="heart_rate_units">bpm</string>
     <string name="alleviated_title">Alleviated</string>
     <string name="alleviated_units">day(s)</string>
 </resources>

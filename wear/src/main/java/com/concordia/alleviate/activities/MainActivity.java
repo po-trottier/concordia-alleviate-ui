@@ -19,13 +19,17 @@ public class MainActivity extends WearableActivity {
     private static final int STRESS_MAXIMUM = 95;
     private static final int ALLEVIATED_MINIMUM = 1;
     private static final int ALLEVIATED_MAXIMUM = 14;
+    private static final int HEART_RATE_MINIMUM = 60;
+    private static final int HEART_RATE_MAXIMUM = 140;
 
     private int stressLevel;
     private int alleviatedTime;
+    private int heartRate;
 
     private CustomGauge stressGauge;
     private TextView stressView;
     private TextView alleviatedView;
+    private TextView heartRateView;
     private ImageButton vitalsButton;
     private ImageButton alleviateButton;
     private ImageButton reliefButton;
@@ -44,6 +48,7 @@ public class MainActivity extends WearableActivity {
         stressGauge = findViewById(R.id.home_progress_bar);
         stressView = findViewById(R.id.home_stress_level_text);
         alleviatedView = findViewById(R.id.home_alleviated_text);
+        heartRateView = findViewById(R.id.home_heart_rate_text);
         vitalsButton = findViewById(R.id.home_vitals_button);
         alleviateButton = findViewById(R.id.home_alleviate_button);
         reliefButton = findViewById(R.id.home_relief_button);
@@ -52,11 +57,13 @@ public class MainActivity extends WearableActivity {
     private void generateRandomData() {
         stressLevel = (int) (Math.random() * (STRESS_MAXIMUM - STRESS_MINIMUM + 1) + STRESS_MINIMUM);
         alleviatedTime = (int) (Math.random() * (ALLEVIATED_MAXIMUM - ALLEVIATED_MINIMUM + 1) + ALLEVIATED_MINIMUM);
+        heartRate = (int) (Math.random() * (HEART_RATE_MAXIMUM - HEART_RATE_MINIMUM + 1) + HEART_RATE_MINIMUM);
     }
 
     private void updateViews() {
         stressView.setText(Integer.toString(stressLevel));
         alleviatedView.setText(Integer.toString(alleviatedTime));
+        heartRateView.setText(Integer.toString(heartRate));
         updateProgressBar();
         setButtonListeners();
     }
