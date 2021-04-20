@@ -14,6 +14,7 @@
     <string name="day_sunday">Sun</string>
 
     <string name="fab_snackbar_alert">A relief session was started on your smart watch.</string>
+    <string name="fab_snackbar_error">Unable to connect to your smart watch.</string>
 
     <string name="stress_text">Stress Level</string>
     <string name="stress_units">%</string>
