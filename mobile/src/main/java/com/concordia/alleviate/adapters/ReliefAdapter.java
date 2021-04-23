@@ -5,31 +5,58 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.TextView;
-
 import com.concordia.alleviate.R;
-import com.concordia.alleviate.adapters.ReliefCard;
+import com.concordia.alleviate.models.OnItemClickListener;
+import com.concordia.alleviate.models.ReliefExercise;
 
-import java.util.ArrayList;
+public class ReliefAdapter extends ArrayAdapter<ReliefExercise> {
 
-public class ReliefAdapter extends ArrayAdapter<ReliefCard> {
-    public ReliefAdapter(Context context, ArrayList<ReliefCard> cards) {
-        super(context, 0, cards);
+    ReliefExercise[] exercises;
+    OnItemClickListener listener;
+
+    public ReliefAdapter(Context context, ReliefExercise[] exercises, OnItemClickListener listener) {
+        super(context, 0, exercises);
+        this.exercises = exercises;
+        this.listener = listener;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        // Get the data item for this position
-        ReliefCard card = getItem(position);
-        // Check if an existing view is being reused, otherwise inflate the view
-        if (convertView == null) {
+        ReliefExercise exercise = getItem(position);
+        if (convertView == null)
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.adapter_relief, parent, false);
-        }
-        // Lookup view for data population
+
         TextView cardTitle = convertView.findViewById(R.id.relief_card_title);
-        // Populate the data into the template view using the data object
-        cardTitle.setText(card.name);
-        // Return the completed view to render on screen
+        cardTitle.setText(exercise.getTitle());
+
+        TextView cardDuration = convertView.findViewById(R.id.relief_card_duration);
+        cardDuration.setText(exercise.getDuration() + " min");
+
+        TextView cardDifficulty = convertView.findViewById(R.id.relief_card_difficulty);
+        cardDifficulty.setText(exercise.getDifficulty());
+
+        ImageButton cardButton = convertView.findViewById(R.id.relief_card_play_button);
+        cardButton.setOnClickListener(v -> {
+            listener.onClick(exercise);
+        });
+
         return convertView;
+    }
+
+    @Override
+    public int getCount() {
+        return exercises.length;
+    }
+
+    @Override
+    public ReliefExercise getItem(int position) {
+        return exercises[position];
+    }
+
+    public void setData(ReliefExercise[] data) {
+        exercises = data;
+        notifyDataSetChanged();
     }
 }

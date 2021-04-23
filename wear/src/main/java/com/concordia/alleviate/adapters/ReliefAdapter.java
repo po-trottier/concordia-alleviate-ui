@@ -8,7 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.concordia.alleviate.R;
-import com.concordia.alleviate.interfaces.OnItemClickListener;
+import com.concordia.alleviate.models.OnItemClickListener;
 
 import java.util.List;
 
