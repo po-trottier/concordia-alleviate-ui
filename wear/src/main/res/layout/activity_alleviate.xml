@@ -10,14 +10,37 @@
     tools:context="com.concordia.alleviate.activities.AlleviateActivity"
     tools:deviceIds="wear">
 
+        <pl.pawelkleczkowski.customgauge.CustomGauge
+            android:id="@+id/alleviate_progress_bar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:gaugePointSize="0"
+            app:gaugePointStartColor="@color/turquoise"
+            app:gaugePointEndColor="@color/turquoise"
+            app:gaugeStrokeColor="@color/faded_turquoise"
+            app:gaugeStrokeWidth="8dp"
+            app:gaugeStrokeCap="ROUND"
+            app:gaugeStartAngle="-90"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
         <TextView
-            android:id="@+id/alleviate_text"
+            android:id="@+id/exercise_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="default activity"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" />
+        <TextView
+            android:id="@+id/command"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/exercise_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
