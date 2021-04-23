@@ -13,4 +13,8 @@
         <item name="android:statusBarColor">@android:color/white</item>
         <item name="android:windowLightStatusBar">true</item>
     </style>
+    <!-- Theme for date picker dialogs -->
+    <style name="Theme.Alleviate.DatePicker" parent="ThemeOverlay.AppCompat.Dialog">
+        <item name="colorAccent">@color/turquoise</item>
+    </style>
 </resources>

@@ -50,6 +50,7 @@ public class ReliefViewModel extends ViewModel {
             exercises.addAll(Arrays.asList(getGroundingExercises()));
 
         ReliefExercise[] retVal = exercises.toArray(new ReliefExercise[] {});
+        Arrays.sort(retVal, Comparator.comparing(ReliefExercise::getTitle));
         Arrays.sort(retVal, Comparator.comparing(ReliefExercise::getOrder));
 
         return retVal;

@@ -11,12 +11,11 @@
         android:id="@+id/header_relief"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="12dp"
+        android:layout_marginVertical="48dp"
         android:textAlignment="center"
         android:textSize="36sp"
         android:text="@string/header_relief"
         android:textColor="@color/dark"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -35,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checkable="true"
-            app:chipBackgroundColor="@color/bg_chip_state_list"
+            app:chipBackgroundColor="@color/colors_chip_state"
             android:textColor="@color/dark"
             android:text="@string/meditation_chip" />
         <com.google.android.material.chip.Chip
@@ -44,7 +43,7 @@
             android:layout_height="wrap_content"
             android:checkable="true"
             android:checked="true"
-            app:chipBackgroundColor="@color/bg_chip_state_list"
+            app:chipBackgroundColor="@color/colors_chip_state"
             android:textColor="@color/dark"
             android:text="@string/breathing_chip" />
         <com.google.android.material.chip.Chip
@@ -52,7 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checkable="true"
-            app:chipBackgroundColor="@color/bg_chip_state_list"
+            app:chipBackgroundColor="@color/colors_chip_state"
             android:textColor="@color/dark"
             android:text="@string/grounding_chip" />
     </com.google.android.material.chip.ChipGroup>
