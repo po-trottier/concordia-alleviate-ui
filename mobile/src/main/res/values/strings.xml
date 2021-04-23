@@ -34,5 +34,23 @@
     <string name="meditation_chip">Meditation</string>
     <string name="header_relief">Time to Relax</string>
     <string name="relief_card">Type Exercise #0</string>
-
+    <string name="header_settings">Settings</string>
+    <string name="metrics">Metrics</string>
+    <string name="age">Age</string>
+    <string name="age_hard_coded">21 years old</string>
+    <string name="sex">Sex</string>
+    <string name="sex_hard_coded">Male</string>
+    <string name="weight">Weight</string>
+    <string name="weight_hard_coded">160 pounds</string>
+    <string name="height">Height</string>
+    <string name="height_hard_coded">5 feet 6 inches</string>
+    <string name="preferences">Preferences</string>
+    <string name="primary_relief_method">Primary Relief Method</string>
+    <string name="primary_relief_method_hard_coded">Lion\'s breath</string>
+    <string name="emergency_contact">Emergency Contact</string>
+    <string name="emergency_contact_hard_coded">Mom</string>
+    <string name="notify_contact">Notify Contact</string>
+    <string name="notify_contact_hint">Notify your emergency contact when an anxiety attack is detected</string>
+    <string name="share_location">Share Location</string>
+    <string name="share_location_hint">Share your current location with your emergency contact in case of a panic attack</string>
 </resources>
