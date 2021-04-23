@@ -7,16 +7,68 @@
     tools:context=".ui.relief.ReliefFragment">
 
     <TextView
-        android:id="@+id/text_dashboard"
+        android:id="@+id/header_relief"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="48dp"
         android:layout_marginEnd="8dp"
         android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="48sp"
+        android:text="@string/header_relief"
+        android:textColor="@color/dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chip_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header_relief">
+        <com.google.android.material.chip.Chip
+            android:id="@+id/meditation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            app:chipBackgroundColor="@color/bg_chip_state_list"
+            android:textColor="@color/dark"
+            android:text="@string/meditation_chip" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/breathing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:checked="true"
+            app:chipBackgroundColor="@color/bg_chip_state_list"
+            android:textColor="@color/dark"
+            android:text="@string/breathing_chip" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/grounding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            app:chipBackgroundColor="@color/bg_chip_state_list"
+            android:textColor="@color/dark"
+            android:text="@string/grounding_chip" />
+    </com.google.android.material.chip.ChipGroup>
+
+    <ListView
+        android:id="@+id/relief_list"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/chip_group"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:listSelector="@android:color/transparent"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

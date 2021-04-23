@@ -29,4 +29,10 @@
     <string name="weekly_statistics_title">Weekly Statistics</string>
     <string name="weekly_statistics_heart">Average Daily Heart Rate</string>
     <string name="weekly_statistics_agitation">Average Daily Agitation</string>
+    <string name="breathing_chip">Breathing</string>
+    <string name="grounding_chip">Grounding</string>
+    <string name="meditation_chip">Meditation</string>
+    <string name="header_relief">Time to Relax</string>
+    <string name="relief_card">Type Exercise #0</string>
+
 </resources>

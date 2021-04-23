@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toBottomOf="@id/chip_group"
+    app:layout_constraintBottom_toBottomOf="parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/relief_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:cardElevation="@dimen/no_elevation"
+        app:cardBackgroundColor="@color/light"
+        app:cardCornerRadius="@dimen/card_corner_radius">
+        <TextView
+            android:id="@+id/relief_card_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="68dp"
+            android:gravity="center_vertical"
+            android:text="@string/relief_card"
+            android:textColor="@color/dark"
+            android:textSize="24sp" />
+        <View
+            android:id="@+id/card_play_button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginRight="20dp"
+            android:layout_gravity="right|center_vertical"
+            android:backgroundTint="@color/ming"
+            android:background="@drawable/ic_baseline_play_circle_filled_24" />
+    </com.google.android.material.card.MaterialCardView>
+</LinearLayout>

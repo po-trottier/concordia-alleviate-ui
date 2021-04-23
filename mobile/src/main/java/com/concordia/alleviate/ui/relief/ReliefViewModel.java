@@ -10,7 +10,6 @@ public class ReliefViewModel extends ViewModel {
 
     public ReliefViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is dashboard fragment");
     }
 
     public LiveData<String> getText() {
