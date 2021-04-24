@@ -10,4 +10,9 @@
     <string name="blood_pressure_title">Blood Pressure</string>
     <string name="agitation_level_title">Agitation Level</string>
     <string name="agitation_level_units">%</string>
+
+    <string name="alleviate_get_ready">Get Ready</string>
+    <string name="alleviate_breath_in">Breath In</string>
+    <string name="alleviate_breath_out">Breath Out</string>
+    <string name="alleviate_done">You\'re Done</string>
 </resources>
