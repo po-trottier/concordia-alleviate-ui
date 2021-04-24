@@ -1,263 +1,224 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.settings.SettingsFragment">
-    <TextView
-        android:id="@+id/header_settings"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="48sp"
-        android:text="@string/header_settings"
-        android:textColor="@color/dark"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
-        android:id="@+id/scrollView"
-        android:layout_width="match_parent"
+        android:id="@+id/settings_scroll_view"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:fillViewport="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/header_settings"
-        app:layout_constraintVertical_bias="0.0"
-        tools:layout_editor_absoluteX="16dp">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        app:layout_constraintTop_toTopOf="parent">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="parent"
-            tools:context=".ui.settings.SettingsFragment">
-
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
             <TextView
-                android:id="@+id/metrics"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:text="@string/metrics"
-                android:textColor="@color/turquoise"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/age"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="8dp"
-                android:text="@string/age"
-                android:textColor="@color/dark"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintTop_toBottomOf="@id/metrics" />
-
-            <TextView
-                android:id="@+id/age_hard_coded"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:text="@string/age_hard_coded"
-                android:textColor="@color/dark"
-                android:textSize="20sp"
-                app:layout_constraintTop_toBottomOf="@id/age" />
-
-            <TextView
-                android:id="@+id/sex"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="8dp"
-                android:text="@string/sex"
-                android:textColor="@color/dark"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintTop_toBottomOf="@id/age_hard_coded" />
-
-            <TextView
-                android:id="@+id/sex_hard_coded"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:text="@string/sex_hard_coded"
-                android:textColor="@color/dark"
-                android:textSize="20sp"
-                app:layout_constraintTop_toBottomOf="@id/sex" />
-
-            <TextView
-                android:id="@+id/weight"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="8dp"
-                android:text="@string/weight"
-                android:textColor="@color/dark"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintTop_toBottomOf="@id/sex_hard_coded" />
-
-            <TextView
-                android:id="@+id/weight_hard_coded"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:text="@string/weight_hard_coded"
-                android:textColor="@color/dark"
-                android:textSize="20sp"
-                app:layout_constraintTop_toBottomOf="@id/weight" />
-
-            <TextView
-                android:id="@+id/height"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="8dp"
-                android:text="@string/height"
-                android:textColor="@color/dark"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintTop_toBottomOf="@id/weight_hard_coded" />
-
-            <TextView
-                android:id="@+id/height_hard_coded"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:text="@string/height_hard_coded"
-                android:textColor="@color/dark"
-                android:textSize="20sp"
-                app:layout_constraintTop_toBottomOf="@id/height" />
-
-            <TextView
-                android:id="@+id/preferences"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
                 android:layout_marginTop="48dp"
-                android:layout_marginEnd="8dp"
-                android:text="@string/preferences"
-                android:textColor="@color/turquoise"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                app:layout_constraintTop_toBottomOf="@id/height" />
+                android:layout_marginBottom="24dp"
+                android:textAlignment="center"
+                android:textSize="36sp"
+                android:text="@string/settings_title"
+                android:textColor="@color/dark" />
 
-            <TextView
-                android:id="@+id/primary_relief_method"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="8dp"
-                android:text="@string/primary_relief_method"
-                android:textColor="@color/dark"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintTop_toBottomOf="@id/preferences" />
+                android:paddingHorizontal="24dp"
+                android:layout_marginBottom="24dp"
+                android:orientation="vertical">
+                
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/settings_metrics"
+                    android:textColor="@color/turquoise"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/primary_relief_method_hard_coded"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:text="@string/primary_relief_method_hard_coded"
-                android:textColor="@color/dark"
-                android:textSize="20sp"
-                app:layout_constraintTop_toBottomOf="@id/primary_relief_method" />
+                <LinearLayout
+                    android:id="@+id/settings_age"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/settings_age"
+                        android:textColor="@color/dark"
+                        android:textSize="18sp"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:id="@+id/settings_age_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/dark"
+                        android:textSize="18sp" />
+                </LinearLayout>
 
-            <TextView
-                android:id="@+id/emergency_contact"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="8dp"
-                android:text="@string/emergency_contact"
-                android:textColor="@color/dark"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintTop_toBottomOf="@id/primary_relief_method_hard_coded" />
+                <LinearLayout
+                    android:id="@+id/settings_sex"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/settings_sex"
+                        android:textColor="@color/dark"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/settings_sex_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/dark"
+                        android:textSize="18sp" />
+                </LinearLayout>
 
-            <TextView
-                android:id="@+id/emergency_contact_hard_coded"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:text="@string/emergency_contact_hard_coded"
-                android:textColor="@color/dark"
-                android:textSize="20sp"
-                app:layout_constraintTop_toBottomOf="@id/emergency_contact" />
+                <LinearLayout
+                    android:id="@+id/settings_weight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/settings_weight"
+                        android:textColor="@color/dark"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/settings_weight_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/dark"
+                        android:textSize="18sp" />
+                </LinearLayout>
 
-            <TextView
-                android:id="@+id/notify_contact"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="8dp"
-                android:text="@string/notify_contact"
-                android:textColor="@color/dark"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintTop_toBottomOf="@id/emergency_contact_hard_coded" />
+                <LinearLayout
+                    android:id="@+id/settings_height"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/settings_height"
+                        android:textColor="@color/dark"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/settings_height_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/dark"
+                        android:textSize="18sp" />
+                </LinearLayout>
 
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/switch_notify_contact"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:checked="true"
-                android:text="@string/notify_contact_hint"
-                android:textSize="20sp"
-                app:layout_constraintTop_toBottomOf="@id/notify_contact"
-                app:thumbTint="@color/switch_state_list"
-                app:trackTint="@color/track_state_list" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/settings_preferences"
+                    android:textColor="@color/turquoise"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/share_location"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="8dp"
-                android:text="@string/share_location"
-                android:textColor="@color/dark"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintTop_toBottomOf="@id/switch_notify_contact" />
+                <LinearLayout
+                    android:id="@+id/settings_relief_method"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/settings_relief_method"
+                        android:textColor="@color/dark"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/settings_relief_method_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/dark"
+                        android:textSize="18sp" />
+                </LinearLayout>
 
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/switch_share_location"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:checked="true"
-                android:text="@string/share_location_hint"
-                android:textSize="20sp"
-                app:layout_constraintTop_toBottomOf="@id/share_location"
-                app:thumbTint="@color/switch_state_list"
-                app:trackTint="@color/track_state_list" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <LinearLayout
+                    android:id="@+id/settings_emergency_contact"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/settings_emergency_contact"
+                        android:textColor="@color/dark"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/settings_emergency_contact_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/dark"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/settings_notify_contact"
+                    android:textColor="@color/dark"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/settings_notify_contact"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:textSize="18sp"
+                    android:text="@string/settings_notify_contact_hint"
+                    app:switchPadding="12dp"
+                    app:thumbTint="@color/colors_switch_state"
+                    app:trackTint="@color/colors_track_state" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/settings_share_location"
+                    android:textColor="@color/dark"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/settings_share_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:textSize="18sp"
+                    android:text="@string/settings_share_location_hint"
+                    app:switchPadding="12dp"
+                    app:thumbTint="@color/colors_switch_state"
+                    app:trackTint="@color/colors_track_state" />
+            </LinearLayout>
+        </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

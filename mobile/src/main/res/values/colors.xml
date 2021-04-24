@@ -10,6 +10,8 @@
     <color name="faded_yellow_orange">#FFF4E6</color>
     <color name="faded_fiery_rose">#FFEBED</color>
 
+    <color name="turquoise_disabled">#A1E6DF</color>
+
     <color name="dark">#FF333138</color>
     <color name="light">#FFF7F7F7</color>
     <color name="grey">#FFDEDEDE</color>
