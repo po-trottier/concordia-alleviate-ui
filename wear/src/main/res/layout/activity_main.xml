@@ -22,7 +22,7 @@
         app:gaugeStrokeCap="ROUND"
         app:gaugeStartAngle="90"
         app:gaugeStartValue="0"
-        app:gaugeEndValue="100"
+        app:gaugeEndValue="100000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

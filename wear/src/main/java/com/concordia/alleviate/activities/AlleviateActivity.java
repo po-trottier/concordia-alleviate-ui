@@ -21,7 +21,6 @@ public class AlleviateActivity extends WearableActivity {
     private static final int RESET_TIME = 600;
 
     private static final int ROUNDS = 3;
-    private static final int PRECISION = 100000;
 
     private static final int[] EXERCISE_STEPS = {
         R.string.alleviate_get_ready,
@@ -84,7 +83,7 @@ public class AlleviateActivity extends WearableActivity {
         final int[] resetCount = {0};
         final int[] exerciseCount = {0};
 
-        introAnimation = ValueAnimator.ofInt(0, PRECISION);
+        introAnimation = ValueAnimator.ofInt(0, exerciseGauge.getEndValue());
         introAnimation.setDuration(INTRO_TIME);
         introAnimation.setInterpolator(new LinearInterpolator());
         introAnimation.addUpdateListener(animation -> {
@@ -97,7 +96,7 @@ public class AlleviateActivity extends WearableActivity {
             }
         });
 
-        exerciseAnimation = ValueAnimator.ofInt(0, PRECISION);
+        exerciseAnimation = ValueAnimator.ofInt(0, exerciseGauge.getEndValue());
         exerciseAnimation.setDuration(BREATHING_TIME);
         exerciseAnimation.setInterpolator(new LinearInterpolator());
         exerciseAnimation.addUpdateListener(animation -> {
@@ -118,7 +117,7 @@ public class AlleviateActivity extends WearableActivity {
             }
         });
 
-        resetAnimation = ValueAnimator.ofInt(PRECISION, 0);
+        resetAnimation = ValueAnimator.ofInt(exerciseGauge.getEndValue(), 0);
         resetAnimation.setDuration(RESET_TIME);
         resetAnimation.setInterpolator(new LinearInterpolator());
         resetAnimation.addUpdateListener(animation -> {

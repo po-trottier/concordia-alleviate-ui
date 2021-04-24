@@ -1,5 +1,6 @@
 package com.concordia.alleviate.ui.journal;
 
+import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.concordia.alleviate.R;
@@ -23,8 +25,9 @@ import pl.pawelkleczkowski.customgauge.CustomGauge;
 
 public class JournalFragment extends Fragment {
 
-    private static final int GAUGE_ANIMATION_TIME = 5;
-    private static final int CHART_ANIMATION_TIME = 2;
+    private static final int GAUGE_ANIMATION_TIME = 600;
+    private static final int GAUGE_ANIMATION_DELAY = 500;
+    private static final int CHART_ANIMATION_TIME = 2000;
 
     private Activity activity;
     private JournalViewModel vm;
@@ -67,6 +70,7 @@ public class JournalFragment extends Fragment {
     }
 
     private void updateViewsData() {
+        updateProgressBar(vm.getStressLevel().getValue());
         heartRateChart.setData(vm.getHeartRateChartData(activity.getColor(R.color.turquoise)));
         agitationChart.setData(vm.getAgitationChartData(activity.getColor(R.color.yellow_orange)));
         vm.getAlleviatedTime().observe(getViewLifecycleOwner(), (i) -> alleviatedView.setText(Integer.toString(i)));
@@ -107,21 +111,18 @@ public class JournalFragment extends Fragment {
         description.setEnabled(false);
 
         chart.setTouchEnabled(false);
-        chart.animateXY(CHART_ANIMATION_TIME * 1000, CHART_ANIMATION_TIME * 1000, Easing.EaseOutCubic);
+        chart.animateXY(CHART_ANIMATION_TIME, CHART_ANIMATION_TIME, Easing.EaseOutCubic);
     }
 
     private void updateProgressBar(int stressValue) {
-        new Thread(() -> {
-            try {
-                Thread.sleep(600);
-                for (int i = 0 ; i < 100 ; i++) {
-                    float percentage = (float) (i + 1) / 100;
-                    activity.runOnUiThread(() -> stressGauge.setValue((int) (stressValue * percentage)));
-                    Thread.sleep((long) ((float) (GAUGE_ANIMATION_TIME * stressValue) / 100));
-                }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }).start();
+        int maxValue = (int) (stressGauge.getEndValue() * ((float) stressValue / 100.0f));
+        ValueAnimator animation = ValueAnimator.ofInt(0, maxValue);
+        animation.setDuration(GAUGE_ANIMATION_TIME);
+        animation.setStartDelay(GAUGE_ANIMATION_DELAY);
+        animation.setInterpolator(new FastOutSlowInInterpolator());
+        animation.addUpdateListener(a -> {
+            stressGauge.setValue((int) a.getAnimatedValue());
+        });
+        animation.start();
     }
 }

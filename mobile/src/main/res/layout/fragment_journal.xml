@@ -37,7 +37,7 @@
             app:gaugeStrokeCap="ROUND"
             app:gaugeStartAngle="90"
             app:gaugeStartValue="0"
-            app:gaugeEndValue="100"
+            app:gaugeEndValue="100000"
             app:layout_constraintBottom_toTopOf="@id/journal_stress_card"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

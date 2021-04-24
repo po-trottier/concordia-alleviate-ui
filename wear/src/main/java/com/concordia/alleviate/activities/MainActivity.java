@@ -1,19 +1,25 @@
 package com.concordia.alleviate.activities;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.wearable.activity.WearableActivity;
 import android.view.View;
+import android.view.animation.LinearInterpolator;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
 import androidx.lifecycle.MutableLiveData;
 import com.concordia.alleviate.R;
 import pl.pawelkleczkowski.customgauge.CustomGauge;
 
 public class MainActivity extends WearableActivity {
 
-    private static final int GAUGE_ANIMATION_TIME = 5;
+    private static final int GAUGE_PRECISION = 100000;
+    private static final int GAUGE_ANIMATION_TIME = 600;
 
     private static final int STRESS_MINIMUM = 10;
     private static final int STRESS_MAXIMUM = 95;
@@ -69,18 +75,14 @@ public class MainActivity extends WearableActivity {
     }
 
     private void updateProgressBar() {
-        new Thread(() -> {
-            try {
-                Thread.sleep(600);
-                for (int i = 0 ; i < 100 ; i++) {
-                    float percentage = (float) (i + 1) / 100;
-                    runOnUiThread(() -> stressGauge.setValue((int) (stressLevel * percentage)));
-                    Thread.sleep((long) ((float) (GAUGE_ANIMATION_TIME * stressLevel) / 100));
-                }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }).start();
+        int maxValue = (int) (stressGauge.getEndValue() * ((float) stressLevel / 100.0f));
+        ValueAnimator animation = ValueAnimator.ofInt(0, maxValue);
+        animation.setDuration(GAUGE_ANIMATION_TIME);
+        animation.setInterpolator(new FastOutSlowInInterpolator());
+        animation.addUpdateListener(a -> {
+            stressGauge.setValue((int) a.getAnimatedValue());
+        });
+        animation.start();
     }
 
     private void setButtonListeners() {
