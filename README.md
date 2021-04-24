@@ -25,3 +25,13 @@ A demo video is available for [download here](/demo.mp4?raw=true) or to [stream 
 
 - Any x86 emulators will not be able to connect to the watch emulator as the Google WearOS application is not compatible with that platform. 
 - The demo video was recorded by running the mobile application on an actual device and connecting to the watch emulator.
+
+## Screenshots
+
+![Journal Screenshot](/screenshots/journal.png)
+![Relief Screenshot](/screenshots/relief.png)
+![Settings Screenshot](/screenshots/settings.png)
+![Watch Home Screenshot](/screenshots/watch_home.png)
+![Vitals Screenshot](/screenshots/watch_vitals.png)
+![Watch Relief Screenshot](/screenshots/watch_relief.png)
+![Watch Exercise Screenshot](/screenshots/watch_exercise.png)
