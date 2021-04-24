@@ -3,7 +3,7 @@
 
 ## Submission
 
-A demo video is available [here](/demo.mp4?raw=true) or stream it [here](https://streamable.com/c4e7hw)
+A demo video is available for [download here](/demo.mp4?raw=true) or to [stream here](https://streamable.com/c4e7hw)
 
 #### Written By:
 
